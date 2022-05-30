@@ -1,0 +1,252 @@
+* {
+    box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body{
+    display: flex;
+    align-items: center;
+    background-color: #FEF8FA;
+    background-image: url("../img/background.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: top;
+    background-attachment: fixed;
+}
+
+.container-sm{
+    padding: 1rem;
+    padding-top: 40px;
+    padding-bottom: 40px;
+}
+
+.player-container{
+    height: 100%;
+    align-items: center;
+    text-align: center;
+    background-color: #ffffffcb;
+    border-radius: 15px;
+    padding: 1rem;
+}
+
+.nav, .nav-link{
+    color: black;
+}
+
+.active{
+    font-weight: bold;
+}
+
+.player:hover{
+    color: rgba(187,102,255,1);
+}
+
+.library:hover{
+    color: rgba(255,165,51,1);
+}
+
+.presenters:hover{
+    color: rgba(255,107,110,1);
+}
+
+.img-logo{
+    height: 7rem;
+    width: auto;
+    margin-bottom: 5px;
+}
+
+.text-warp{
+    word-wrap: break-word;
+}
+
+.now-playing{
+    width: max-content;
+    min-width: 21rem;
+    margin: auto;
+    margin-top: 0.5rem;
+    background-color: #ffffff;
+    border-radius: 15px;
+    padding: 1rem;
+    text-align: center;
+}
+
+.not-playing{
+    padding: 25px;
+    width: max-content;
+    min-width: 10rem;
+    min-height: 10rem;
+    margin: auto;
+    margin-top: 0.5rem;
+    background-color: #ffffff;
+    border-radius: 15px;
+    text-align: center;
+}
+
+.img-placeholder{
+    border-radius: 40px;
+    height: auto;
+    width: 250px;
+}
+
+.btn-play{
+    background: rgb(187,102,255);
+    background: linear-gradient(90deg, rgba(187,102,255,1) 0%, rgba(255,165,51,1) 50%, rgba(255,107,110,1) 100%);
+    border: transparent;
+    border-radius: 120px;
+    text-decoration: none;
+    display: inline-block;
+    animation-duration: 2s;
+}
+
+.play-btn-icon{
+    color: white;
+}
+
+.btn-play:hover {
+    background: rgb(187,102,255);
+    background: linear-gradient(180deg, rgba(187,102,255,1) 0%, rgba(255,165,51,1) 50%, rgba(255,107,110,1) 100%);
+    animation-duration: 2s;
+}
+
+#countdown, #countdown ul {
+    text-align: center;
+}
+
+.txt-no-stream {
+    text-align: center;
+}
+
+li {
+    display: inline-block;
+    font-size: 0.6rem;
+    list-style-type: none;
+    text-align: center;
+    text-transform: uppercase;
+    margin-right: 1rem;
+}
+
+li span {
+    display: block;
+    font-size: 2rem;
+    text-align: center;
+}
+
+.social-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: -10px;
+}
+.social-buttons__button {
+    margin: 10px 5px 0;
+}
+
+.social-button {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    outline: none;
+    width: 2.5em;
+    height: 2.5em;
+    text-decoration: none;
+    border-radius: 100%;
+    background: #fff;
+    text-align: center;
+}
+.social-button::after {
+    content: "";
+    position: absolute;
+    top: -1px;
+    left: 50%;
+    display: block;
+    width: 0;
+    height: 0;
+    border-radius: 100%;
+    transition: 0.3s;
+}
+.social-button:focus, .social-button:hover {
+color: #fff;
+}
+.social-button:focus::after, .social-button:hover::after {
+width: calc(100% + 2px);
+height: calc(100% + 2px);
+margin-left: calc(-50% - 1px);
+}
+.social-button i,
+.social-button svg {
+position: relative;
+z-index: 1;
+transition: 0.3s;
+}
+.social-button i {
+font-size: 28px;
+}
+.social-button svg {
+height: 40%;
+width: 40%;
+}
+.social-button--mail {
+color: #0072c6;
+}
+.social-button--mail::after {
+background: #0072c6;
+}
+.social-button--facebook {
+color: #3b5999;
+}
+.social-button--facebook::after {
+background: #3b5999;
+}
+.social-button--linkedin {
+color: #0077b5;
+}
+.social-button--linkedin::after {
+background: #0077b5;
+}
+.social-button--github {
+color: #6e5494;
+}
+.social-button--github::after {
+background: #6e5494;
+}
+.social-button--codepen {
+color: #212121;
+}
+.social-button--codepen::after {
+background: #212121;
+}
+.social-button--steam {
+color: #7da10e;
+}
+.social-button--steam::after {
+background: #7da10e;
+}
+.social-button--snapchat {
+color: #eec900;
+}
+.social-button--snapchat::after {
+background: #eec900;
+}
+.social-button--twitter {
+color: #55acee;
+}
+.social-button--twitter::after {
+background: #55acee;
+}
+.social-button--instagram {
+color: #e4405f;
+}
+.social-button--instagram::after {
+background: #e4405f;
+}
+.social-button--npmjs {
+color: #c12127;
+}
+.social-button--npmjs::after {
+background: #c12127;
+}

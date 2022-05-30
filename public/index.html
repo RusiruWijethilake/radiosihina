@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#FEF8FA" >
+  
+  <link rel="icon" href="fav.png">
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <link href="css/custom.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,1,0" />
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css" />
+
+  <title>Radio සිහින</title>
+</head>
+<body>
+  <div class="container-sm">
+    <div class="player-container">
+      <img alt="Radio Sihina Logo" src="img/logo_transparent.png" class="img-logo">
+      <nav class="nav justify-content-center">
+        <a class="nav-link radio active" aria-current="page" href="#">Player</a>
+        <a class="nav-link library" href="library.html" target="_blank">Library</a>
+        <a class="nav-link presenters" href="presenters.html" target="_blank">Presenters</a>
+      </nav>
+      <div class="not-playing" id="playeroff">
+        <h3 class="txt-no-stream">Launching Soon</h3>
+        <h5>4th of June 2022</h5>
+        <hr>
+        <!--p>Check our Facebook or sign up for<br>notifications to learn more about<br>upcoming streams. Or check out our<br>library for previous programs.</p-->
+        <div id="countdown">
+          <ul>
+            <li><span id="days"></span>days</li>
+            <li><span id="hours"></span>Hours</li>
+            <li><span id="minutes"></span>Minutes</li>
+            <li><span id="seconds"></span>Seconds</li>
+          </ul>
+        </div>
+      </div>
+      <div class="now-playing" id="playeron" style="display: none;">
+        <img alt="Program Placeholder" src="img/placeholder.jpg" class="img-placeholder" id="img-nowplaying">
+        <br>
+        <br>
+        <h5>Now Playing</h5>
+        <h3 class="text-warp" id="txt-nowplaying">Sample Radio Program</h3>
+        <br>
+        <h6>Presenter</h6>
+        <h4 class="text-warp" id="txt-presenter">John Doe</h4>
+        <br>
+        <audio id="audio-player" controls></audio>
+      </div>
+      <br>
+      <div class="social-buttons">
+        <a href="https://www.facebook.com/radiosihina/" target="_blank" class="social-buttons__button social-button social-button--facebook" aria-label="Facebook">
+          <i class="fab fa-facebook-f"></i>
+        </a>
+        <a href="https://twitter.com/radiosihinalive" target="_blank" class="social-buttons__button social-button social-button--twitter" aria-label="Twitter">
+          <i class="fab fa-twitter"></i>
+        </a>
+        <a href="mailto:radiosihinalive@gmail.com" target="_blank" class="social-buttons__button social-button social-button--mail" aria-label="Gmail">
+          <i class="fab fa-google"></i>
+        </a>
+      </div>
+      <br>
+      <a class="text-muted" style="text-decoration: none;" href="https://www.facebook.com/microlion.ml" target="_blank">&copy; Microlion Technologies 2022</a>
+    </div>
+
+    <!-- Messenger Chat Plugin Code -->
+    <div id="fb-root"></div>
+  
+    <!-- Your Chat Plugin code -->
+    <div id="fb-customer-chat" class="fb-customerchat">
+    </div>
+  
+  </div>
+
+  <!--Scripts-->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-storage.js"></script>
+  <script src="js/main.js"></script>
+  
+  <script>
+    var chatbox = document.getElementById('fb-customer-chat');
+    chatbox.setAttribute("page_id", "355681665187316");
+    chatbox.setAttribute("attribution", "biz_inbox");
+  </script>
+
+  <!-- Your SDK code -->
+  <script>
+    window.fbAsyncInit = function() {
+      FB.init({
+        xfbml            : true,
+        version          : 'v14.0'
+      });
+    };
+
+    (function(d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) return;
+      js = d.createElement(s); js.id = id;
+      js.src = 'https://connect.facebook.net/en_US/sdk/xfbml.customerchat.js';
+      fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+  </script>
+</body>
+</html>

@@ -1,0 +1,133 @@
+* {
+    box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body{
+    background-color: #FEF8FA;
+    background-image: url("../img/background.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: top;
+    background-attachment: fixed;
+}
+
+.container-sm{
+    background-color: #ffffffcb;
+    height: 100%;
+}
+
+.img-logo{
+    height: 3rem;
+    width: auto;
+    margin-bottom: 5px;
+}
+
+.header-text{
+    background: -webkit-linear-gradient(90deg, rgba(187,102,255,1) 0%, rgba(255,165,51,1) 50%, rgba(255,107,110,1) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.navbar{
+    background-color: transparent;
+}
+
+.program-box{
+    width: auto;
+    height: max-content;
+    margin: auto;
+    margin-top: 0.5rem;
+    background-color: #ffffff;
+    border-radius: 15px;
+    padding: 1rem;
+    text-align: center;
+}
+
+.navbar, .nav-link{
+    color: black;
+}
+
+.active{
+    font-weight: bold;
+    color: rgba(255,165,51,1);
+}
+
+.player:hover{
+    color: rgba(187,102,255,1);
+}
+
+.library:hover, .library.active:hover {
+    font-weight: bold;
+    color: rgba(255,165,51,1);
+}
+
+.presenter:hover {
+    color: rgba(255,107,110,1);
+}
+
+.program-viewer {
+    display: flex;
+    text-align: center;
+    margin-top: 20px;
+    border-radius: 15px;
+    padding: 10px;
+    background: rgb(187,102,255);
+    background: linear-gradient(90deg, rgba(187,102,255,1) 0%, rgba(255,165,51,1) 50%, rgba(255,107,110,1) 100%);
+}
+
+.program-list {
+    margin-top: 20px;
+    border-radius: 15px;
+    padding: 0.5rem;
+}
+
+.player-img{
+    height: 3rem;
+    margin-right: 14px;
+    border-radius: 15px;
+}
+
+.recordings{
+    padding-top: 1rem;
+}
+
+.list-group-item-action {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.list-group-item-action a {
+    justify-content: space-around;
+    align-items: center;
+}
+
+.item-img{
+    height: 3rem;
+    width: auto;
+    border-radius: 5px;
+}
+
+.item-header {
+    font-size: 1.8rem;
+    margin-left: 1rem;
+    margin-right: 1rem;
+}
+
+.item-subheader{
+    font-size: 1.2rem;
+}
+
+.item-desc {
+    font-size: 1rem;
+}
+
+.item-dateandtime {
+    font-size: 1rem;
+    font-weight: 100;
+}
