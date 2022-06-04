@@ -40,7 +40,7 @@ function showRecordings(selected) {
   recordingList.innerHTML = "";
 
   if(proid != "null"){
-    db.collection("library").where("id", "==", proid).orderBy("number", "desc")
+    db.collection("library").where("id", "==", proid)
       .get()
       .then((querySnapshot) => {
           querySnapshot.forEach((doc) => {
