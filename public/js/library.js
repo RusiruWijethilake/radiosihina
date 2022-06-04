@@ -52,23 +52,14 @@ function showRecordings(selected) {
                 db.collection("presenters").doc(program.data().presenter).get().then((presenter) => {
                   var by = presenter.data().firstname + " " + presenter.data().lastname;
 
-                  var newItem = document.createElement("a");
-                  newItem.classList.add("list-group-item");
-                  newItem.classList.add("list-group-item-action");
-                  newItem.classList.add("list-group-item-light");
-                  newItem.setAttribute("data-bs-toggle", "list");
+                  var newDesc = document.createElement("tr");
+                  var newPlayer = document.createElement("tr");
 
-                  var pathReference = storage.refFromURL(program.data().art);
-                  pathReference.getDownloadURL().then((url) => {
-                    newItem.innerHTML = "<span class='item-header'>"+number+"</span><img src='"+url+"' class='item-img' alt='Program Icon'><span class='item-header'>"+program.data().name+"</span><span class='item-desc'>by <span class='item-subheader'>"+by+"</span></span><span class='item-dateandtime'>"+dat+"</span><audio preload='none' controls><source src="+link+" type='audio/mpeg' controls></audio>";
+                  newDesc.innerHTML = "<th>"+number+"</th><th>"+program.data().name+"</th><td>By "+by+"</td><td class='text-muted'>"+dat+"</td>";
+                  newPlayer.innerHTML = "<td colspan='4'><audio preload='none' controls><source src="+link+" type='audio/mpeg'></audio></td>";
 
-                    recordingList.append(newItem);
-                  })
-                  .catch((error) => {
-                    newItem.innerHTML = "<span class='item-header'>"+number+"</span><img src='img/placeholder.jpg' class='item-img' alt='Program Icon'><span class='item-header'>"+program.data().name+"</span><span class='item-desc'>by <span class='item-subheader'>"+by+"</span></span><span class='item-dateandtime'>"+dat+"</span><audio preload='none' controls><source src="+link+" type='audio/mpeg' controls></audio>";
-
-                    recordingList.append(newItem);
-                  });
+                  recordingList.append(newDesc);
+                  recordingList.append(newPlayer);
                 }).catch((er) => {
                   console.log("Error getting document:", er);
                 });
