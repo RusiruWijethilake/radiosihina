@@ -2,11 +2,6 @@
     box-sizing: border-box;
 }
 
-html,
-body {
-  height: 100%;
-}
-
 body{
     display: flex;
     align-items: center;
@@ -16,16 +11,14 @@ body{
     background-repeat: no-repeat;
     background-position: top;
     background-attachment: fixed;
+    padding: 2rem;
 }
 
 .container-sm{
-    padding: 1rem;
-    padding-top: 40px;
-    padding-bottom: 40px;
+    padding: 0.5rem;
 }
 
 .player-container{
-    height: 100%;
     align-items: center;
     text-align: center;
     background-color: #ffffffcb;
@@ -54,9 +47,10 @@ body{
 }
 
 .img-logo{
-    height: 7rem;
+    height: 5rem;
     width: auto;
     margin-bottom: 5px;
+    padding-top: 5px;
 }
 
 .text-warp{
@@ -65,12 +59,11 @@ body{
 
 .now-playing{
     width: max-content;
-    min-width: 21rem;
     margin: auto;
     margin-top: 0.5rem;
     background-color: #ffffff;
     border-radius: 15px;
-    padding: 1rem;
+    padding: 1rem 0.5rem;
     text-align: center;
 }
 
@@ -89,7 +82,7 @@ body{
 .img-placeholder{
     border-radius: 40px;
     height: auto;
-    width: 250px;
+    width: 15rem;
 }
 
 .btn-play{
@@ -250,3 +243,14 @@ color: #c12127;
 .social-button--npmjs::after {
 background: #c12127;
 }
+
+audio::-webkit-media-controls-panel {
+    background-color: #56AEFF;
+  }
+  
+  audio::-webkit-media-controls-volume-slider {
+    background-color: #B1D4E0;
+    border-radius: 25px;
+    padding-left: 8px;
+    padding-right: 8px;
+  }
