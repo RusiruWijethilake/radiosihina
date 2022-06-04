@@ -39,11 +39,11 @@ body{
 }
 
 .library:hover{
-    color: rgba(255,165,51,1);
+    color: #ffa533;
 }
 
 .presenters:hover{
-    color: rgba(255,107,110,1);
+    color: #ff6b6e;
 }
 
 .img-logo{
@@ -245,12 +245,12 @@ background: #c12127;
 }
 
 audio::-webkit-media-controls-panel {
-    background-color: #56AEFF;
-  }
+    background-color: #ffa533;
+}
   
-  audio::-webkit-media-controls-volume-slider {
-    background-color: #B1D4E0;
+audio::-webkit-media-controls-volume-slider {
+    background-color: #ff6b6e;
     border-radius: 25px;
     padding-left: 8px;
     padding-right: 8px;
-  }
+}
