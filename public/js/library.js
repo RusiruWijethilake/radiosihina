@@ -11,6 +11,7 @@ const firebaseConfig = {
 firebase.initializeApp(firebaseConfig);
 
 const db = firebase.firestore();
+const analytics = firebase.analytics();
 var storage = firebase.storage();
 
 var programList = document.getElementById("program-list");
@@ -38,6 +39,8 @@ db.collection("programs")
 function showRecordings(selected) {
   var proid = selected.value;
   recordingList.innerHTML = "";
+
+  logEvent(proid+" clicked");
 
   if(proid != "null"){
     db.collection("library").where("id", "==", proid)
@@ -74,4 +77,8 @@ function showRecordings(selected) {
   }else{
     recordingList.innerHTML = "";
   }
+}
+
+function logEvent(message){
+  analytics.logEvent("LIBRARY "+message);
 }
