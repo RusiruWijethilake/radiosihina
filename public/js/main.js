@@ -11,6 +11,7 @@ const firebaseConfig = {
 firebase.initializeApp(firebaseConfig);
 
 const db = firebase.firestore();
+const analytics = getAnalytics(app);
 var storage = firebase.storage();
 
 var playerOn = document.getElementById("playeron");
@@ -23,6 +24,13 @@ var imgNowPlaying = document.getElementById("img-nowplaying");
 var streamUrl = "";
 
 var AudioPlayer = document.getElementById("audio-player");
+
+AudioPlayer.addEventListener('playing', logEvent("started playing"));
+AudioPlayer.addEventListener('pause', logEvent("stoped playing"));
+
+function logEvent(message){
+  analytics.logEvent("RADIO-PLAYER "+message);
+}
 
 db.collection("live").doc("radiosihina")
     .onSnapshot((doc) => {
