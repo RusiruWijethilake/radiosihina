@@ -24,6 +24,7 @@ db.collection("programs")
             var newProgram = document.createElement("option");
 
             db.collection("presenters").doc(doc.data().presenter).get().then((presenter) => {
+              console.log(presenter);
               newProgram.innerHTML = doc.data().name+" by "+presenter.data().firstname+" "+presenter.data().lastname;
               newProgram.value = ""+doc.id+"";
               programList.appendChild(newProgram);

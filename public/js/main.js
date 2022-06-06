@@ -12,7 +12,12 @@ firebase.initializeApp(firebaseConfig);
 
 const db = firebase.firestore();
 const analytics = firebase.analytics();
+const messaging = firebase.messaging();
 var storage = firebase.storage();
+
+messaging.onMessage((payload) => {
+  console.log('Message received. ', payload);
+});
 
 var playerOn = document.getElementById("playeron");
 var playerOff = document.getElementById("playeroff");

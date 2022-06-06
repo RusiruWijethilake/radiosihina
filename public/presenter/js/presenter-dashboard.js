@@ -26,7 +26,7 @@ auth.onAuthStateChanged((user) => {
             document.getElementById("txtUserDisplayName").innerHTML = user.displayName;
         }
         uid = user.uid;
-        console.log(user);
+        console.log(uid);
     } else {
         window.href = "index.html";
     }
