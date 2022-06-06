@@ -13,16 +13,34 @@ firebase.initializeApp(firebaseConfig);
 const auth = firebase.auth();
 const user = auth.currentUser;
 
-function initApplication(){
-    if(user == null){
-        alert("Authentication failed! Please login again!");
-        location.href = "index.html";
-    }else{
+var uid = "";
 
+auth.onAuthStateChanged((user) => {
+    if (user) {
+        document.getElementById("txtUserEmail").innerHTML = user.email;
+        var userDisplayName = user.displayName;
+        if(userDisplayName == null){
+            document.getElementById("txtUserDisplayName").innerHTML = "<a href='#' onclick='changeUserDisplayName()'>Set your name</a>";
+        }else{
+            document.getElementById("txtUserDisplayName").innerHTML = user.displayName;
+        }
+        uid = user.uid;
+        console.log(user);
+    } else {
+        window.href = "index.html";
     }
-}
+});
 
-initApplication();
+function changeUserDisplayName(){
+    var newDisplayName = prompt("Enter your first and last name (Eg: John Doe)");
+    firebase.auth().currentUser.updateProfile({
+        displayName: newDisplayName,
+      }).then(() => {
+        alert("Name updated successfully!")
+      }).catch((error) => {
+        alert(error.message);
+      });
+}
 
 function signOutUser(){
     firebase.auth().signOut().then(() => {

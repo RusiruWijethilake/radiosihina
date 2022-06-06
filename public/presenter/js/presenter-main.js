@@ -20,7 +20,6 @@ function signInUser(){
         firebase.auth().signInWithEmailAndPassword(emailField.value, passwordField.value)
         .then((userCredential) => {
             var user = userCredential.user;
-            console.log(user);
             if(user.emailVerified === false){
                 firebase.auth().currentUser.sendEmailVerification()
                 .then(() => {
@@ -34,13 +33,11 @@ function signInUser(){
                 if(user.disabled === true){
                     alert("Your access has been disbaled. Contact Rusiru for assistance.");
                 }else{
-                    console.log("test");
                     location.href = "dashboard.html";
                 }
             }
         })
         .catch((error) => {
-            var errorCode = error.code;
             var errorMessage = error.message;
             console.log(errorMessage);
             alert(errorMessage+"\nContact Rusiru for assistance.");
@@ -56,10 +53,8 @@ function resetPassword(){
       showAlert("Password reset email has been sent to '"+email+"'!");
     })
     .catch((error) => {
-      var errorCode = error.code;
       var errorMessage = error.message;
       showAlert(errorMessage);
-      // ..
     });
 }
 
