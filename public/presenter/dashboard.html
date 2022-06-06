@@ -31,7 +31,7 @@
         <div class="row">
             <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block sidebar collapse bg-white">
                 <div class="position-sticky pt-3 text-center bg-white">
-                    <ul class="nav flex-column">
+                    <ul class="nav flex-column" id="sidebar-itemlist">
                         <li class="nav-item">
                             <a class="nav-link active" aria-current="page" href="#">
                                 <img src="../img/presenter-placeholder.jpg" alt="Profile Photo" class="user-photo">
@@ -60,6 +60,10 @@
                             <button class="btn btn-light btn-gradiented" onclick="signOutUser()">Sign Out</button>
                         </li>
                         <li class="nav-item">
+                            <hr>
+                        </li>
+                        <li class="nav-item">
+                            <h6>Your Program(s)</h6>
                         </li>
                     </ul>
                 </div>
@@ -77,12 +81,12 @@
                 <div class="dash-section">
                     <h3 class="h3">Your Programs</h3>
                     <div class="">
-                        <select class="form-select" aria-label="Default select example">
-                            <option selected>Open this select menu</option>
-                            <option value="1">One</option>
-                            <option value="2">Two</option>
-                            <option value="3">Three</option>
+                        <select class="form-select" id="program-selector" aria-label="Default select example"  onchange="showProgramManager(this)">
+                            <option value="null">Select a program</option>
                         </select>
+                        <div id="program-manager-view">
+                            
+                        </div>
                     </div>
                 </div>
                 

@@ -13,6 +13,7 @@ firebase.initializeApp(firebaseConfig);
 const auth = firebase.auth();
 const analytics = firebase.analytics();
 const user = auth.currentUser;
+const db = firebase.firestore();
 
 var uid = "";
 
@@ -20,15 +21,37 @@ auth.onAuthStateChanged((user) => {
     if (user) {
         document.getElementById("txtUserEmail").innerHTML = user.email;
         var userDisplayName = user.displayName;
+
         if(userDisplayName == null){
             document.getElementById("txtUserDisplayName").innerHTML = "<a href='#' onclick='changeUserDisplayName()'>Set your name</a>";
         }else{
             document.getElementById("txtUserDisplayName").innerHTML = user.displayName;
         }
+
         uid = user.uid;
-        console.log(uid);
+
+        db.collection("programs").where("presenter", "==", uid)
+        .get()
+        .then((querySnapshot) => {
+            querySnapshot.forEach((doc) => {
+                var programName = doc.data().name;
+                var newLi = document.createElement("li");
+                newLi.className = "nav-item";
+                newLi.innerHTML = "<p>"+programName+"</p>"
+                document.getElementById("sidebar-itemlist").append(newLi);
+
+                var proid = doc.id;
+                var newOption = document.createElement("option");
+                newOption.value = proid;
+                newOption.innerHTML = programName;
+                document.getElementById("program-selector").append(newOption);
+            });
+        })
+        .catch((error) => {
+            console.log("Error getting documents: ", error);
+        });
     } else {
-        window.href = "index.html";
+        location.replace("index.html");
     }
 });
 
@@ -50,4 +73,26 @@ function signOutUser(){
     }).catch((error) => {
         alert(error.message);
     });
+}
+
+var programManager = document.getElementById("program-manager-view");
+
+function showProgramManager(selected) {
+    var proid = selected.value;
+    programManager.innerHTML = "";
+
+    if(proid != "null"){
+        db.collection("programs").doc(proid)
+            .get()
+            .then((doc) => {
+                console.log(doc.data());
+                var newTableView = document.createElement("table");
+                newTableView.innerHTML = "<tr><td></td></tr>";
+            })
+            .catch((error) => {
+                console.log("Error getting documents: ", error);
+            });
+      }else{
+        programManager.innerHTML = "";
+      }
 }
