@@ -31,9 +31,12 @@ db.collection("live").doc("radiosihina")
           playerOn.style.display = "block";
           txtNowPlaying.innerHTML = doc.data().nowplaying;
           txtPresenter.innerHTML = doc.data().presenter;
-          streamUrl = doc.data().streamurl;
+          var newStreamUrl = doc.data().streamurl;
 
-          AudioPlayer.setAttribute("src", streamUrl);
+          if(newStreamUrl != streamUrl){
+            streamUrl = newStreamUrl;
+            AudioPlayer.setAttribute("src", streamUrl);
+          }
 
           var pathReference = storage.refFromURL(doc.data().imgurl);
           pathReference.getDownloadURL().then((url) => {
