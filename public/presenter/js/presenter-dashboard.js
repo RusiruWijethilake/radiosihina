@@ -11,6 +11,7 @@ const firebaseConfig = {
 firebase.initializeApp(firebaseConfig);
 
 const auth = firebase.auth();
+const analytics = firebase.analytics();
 const user = auth.currentUser;
 
 var uid = "";
