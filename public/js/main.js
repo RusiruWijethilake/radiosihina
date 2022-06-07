@@ -1,3 +1,5 @@
+startSpinner();
+
 const firebaseConfig = {
   apiKey: "AIzaSyANGR2PoeFAXlEm0VAnLHPCoyrvq6L6T1Q",
   authDomain: "radio-sihina.firebaseapp.com",
@@ -58,10 +60,21 @@ db.collection("live").doc("radiosihina")
           .catch((error) => {
             imgNowPlaying.src = "img/placeholder.jpg";
           });
+          stopSpinner();
         }else{
+          startSpinner();
           AudioPlayer.pause();
           AudioPlayer.setAttribute("src", "");
           playerOn.style.display = "none";
           playerOff.style.display = "block";
+          stopSpinner();
         }
     });
+
+function startSpinner(){
+  document.getElementById("overlay").style.display = "block";
+}
+
+function stopSpinner(){
+  document.getElementById("overlay").style.display = "none";
+}

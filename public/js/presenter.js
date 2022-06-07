@@ -1,3 +1,5 @@
+startSpinner();
+
 const firebaseConfig = {
     apiKey: "AIzaSyANGR2PoeFAXlEm0VAnLHPCoyrvq6L6T1Q",
     authDomain: "radio-sihina.firebaseapp.com",
@@ -91,9 +93,17 @@ db.collection("presenters")
                 presentersView.appendChild(presenterCard);
             });
 
-            loadingview.style.display = "none";
+            stopSpinner();
         });
     })
     .catch((error) => {
         console.log("Error getting documents: ", error);
     });
+
+function startSpinner(){
+    document.getElementById("overlay").style.display = "block";
+}
+
+function stopSpinner(){
+    document.getElementById("overlay").style.display = "none";
+}
