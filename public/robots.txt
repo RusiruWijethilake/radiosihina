@@ -1,0 +1,9 @@
+User-agent: *
+Disallow: 
+Disallow: /.well-known/
+Disallow: /admin/
+Disallow: /presenter/
+Disallow: /js/
+Disallow: /css/
+Disallow: /img/
+Sitemap: https://radiosihina.ml/sitemap.xml
