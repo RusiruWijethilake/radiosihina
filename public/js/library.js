@@ -58,6 +58,13 @@ function showRecordings(selected) {
     db.collection("library").where("id", "==", proid)
       .get()
       .then((querySnapshot) => {
+        if(querySnapshot.empty){
+          var newDesc = document.createElement("tr");
+
+          newDesc.innerHTML = "<th>No recordings from this presenter yet!</td>";
+
+          recordingList.append(newDesc);
+        }else{
           querySnapshot.forEach((doc) => {
               var id = doc.data().id;
               var link = doc.data().link;
@@ -84,6 +91,7 @@ function showRecordings(selected) {
 
               stopSpinner();
           });
+        }
           var url = new URL(document.URL);
           url.searchParams.set('proid', proid);
           const state = { 'user': 'guest' };

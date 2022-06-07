@@ -17,7 +17,6 @@ const analytics = firebase.analytics();
 var storage = firebase.storage();
 
 var presentersView = document.getElementById("presenters");
-var loadingview = document.getElementById("loading");
 
 db.collection("presenters")
     .get()
