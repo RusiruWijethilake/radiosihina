@@ -20,6 +20,18 @@
 </head>
 <body>
 
+    <div id="overlay">
+        <div class="spinner" id="spinner"></div>
+    </div>
+    <div id="progress-overlay">
+        <div id="overlay-text">
+            <h4>Uploading file</h4>
+            <div class="progress">
+                <div class="progress-bar progress-bar-striped progress-bar-animated bg-danger" role="progressbar" style="width: 30rem" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" id="progressValue">0%</div>
+            </div>
+        </div>
+    </div>
+
     <header class="navbar sticky-top flex-md-nowrap p-0 shadow">
         <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3 fs-6" href="#"><img src="../img/logo_transparent.png" alt="Radio Sihina Logo" height="25"> Presenter Dashboard</a>
         <button class="navbar-toggler position-absolute d-md-none collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
@@ -31,7 +43,7 @@
         <div class="row">
             <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block sidebar collapse bg-white">
                 <div class="position-sticky pt-3 text-center bg-white">
-                    <ul class="nav flex-column" id="sidebar-itemlist">
+                    <ul class="nav flex-column bg-white" id="sidebar-itemlist">
                         <li class="nav-item">
                             <a class="nav-link active" aria-current="page" href="#">
                                 <img src="../img/presenter-placeholder.jpg" alt="Profile Photo" class="user-photo">
@@ -41,13 +53,14 @@
                         <li class="nav-item">
                             <a class="nav-link text-black" aria-current="page" href="#">
                                 <span>Welcome,</span>
-                                <h3 id="txtUserDisplayName">John Doe</h3>
+                                <h4 id="txtUserDisplayName"></h4>
+                                <p class="text-black-50" style="font-size: 0.7rem;" id="txtUserId" data-bs-toggle="tooltip" data-bs-placement="right" title="Your user id"></p>
                             </a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link text-black" aria-current="page" href="#">
                                 <span>Email</span>
-                                <h5 id="txtUserEmail">johndoe@gmail.com</h5>
+                                <h5 id="txtUserEmail"></h5>
                             </a>
                         </li>
                         <li class="nav-item">
@@ -60,7 +73,7 @@
                             <button class="btn btn-light btn-gradiented" onclick="signOutUser()">Sign Out</button>
                         </li>
                         <li class="nav-item">
-                            <hr>
+                            <p></p>
                         </li>
                         <li class="nav-item">
                             <h6>Your Program(s)</h6>
@@ -85,7 +98,7 @@
                             <option value="null">Select a program</option>
                         </select>
                         <div id="program-manager-view">
-                            
+                            <div class='table-responsive table-responsive-xxl' style='visibility: hidden;'><table class='table'><tr><td rowspan='5'><img src='../img/placeholder.jpg' alt='program art'></td><td colspan='3' class='text-center'><span class='h2'>Program Name</span></td></tr><tr><td class='col-sm-4'><span class='h6'>Scheduled Date </span><br><input class='form-control' type='text' disabled></td><td class='col-sm-4'><span class='h6'>Scheduled Time </span><br><input class='form-control' type='text' disabled></td></tr><tr><td colspan='2'><span class='h5'>Upload new program</span></td></tr><tr><td><span class='h6'>Select a date</span><input class='form-control' type='date' id='txtDate' required></td><td><span class='h6'>Upload program</span><input class='form-control' type='file' accept='.mp3,audio/*' required></td></tr><tr><td colspan='2' class='text-center'><button class='btn btn-gradiented'>Upload and Publish</button></td></tr></table></div>
                         </div>
                     </div>
                 </div>
@@ -95,15 +108,15 @@
         </div>
     </div>
 
-  <!--Scripts-->
-  <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-  <script src="../js/bootstrap.bundle.min.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-storage.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-analytics.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
-  
-  <script src="js/presenter-dashboard.js"></script>
+    <!--Scripts-->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="../js/bootstrap.bundle.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-storage.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-analytics.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
+
+    <script src="js/presenter-dashboard.js"></script>
 </body>
 </html>
