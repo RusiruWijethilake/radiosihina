@@ -55,7 +55,7 @@ function showRecordings(selected) {
   logEvent(proid+" clicked");
 
   if(proid != "null"){
-    db.collection("library").where("id", "==", proid)
+    db.collection("library").where("id", "==", proid).orderBy("date", "desc")
       .get()
       .then((querySnapshot) => {
         if(querySnapshot.empty){
@@ -76,9 +76,10 @@ function showRecordings(selected) {
 
                   var newDesc = document.createElement("tr");
                   var newPlayer = document.createElement("tr");
+                  newPlayer.className = "mobile-show";
 
-                  newDesc.innerHTML = "<th>"+number+"</th><th>"+program.data().name+"</th><td>By "+by+"</td><td class='text-muted'>"+dat+"</td>";
-                  newPlayer.innerHTML = "<td colspan='4'><audio preload='none' controls><source src="+link+" type='audio/mpeg'></audio></td>";
+                  newDesc.innerHTML = "<td>"+number+"</td><td>"+program.data().name+"</td><td>By "+by+"</td><td class='text-muted'>"+dat+"</td><td><audio class='mobile-hide' preload='none' controls><source src="+link+" type='audio/mpeg'></audio></td>";
+                  newPlayer.innerHTML = "<td colspan='5'><audio preload='none' controls><source src="+link+" type='audio/mpeg'></audio></td>";
 
                   recordingList.append(newDesc);
                   recordingList.append(newPlayer);
@@ -110,6 +111,11 @@ function showRecordings(selected) {
     history.pushState(state, title, url.toString());
     stopSpinner();
   }
+}
+
+function playRecording(element){
+  console.log(element);
+  //console.log(link);
 }
 
 function logEvent(message){
