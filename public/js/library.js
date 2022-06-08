@@ -55,7 +55,7 @@ function showRecordings(selected) {
   logEvent(proid+" clicked");
 
   if(proid != "null"){
-    db.collection("library").where("id", "==", proid).orderBy("date", "desc")
+    db.collection("library").where("id", "==", proid).where("date", "<=", firebase.firestore.Timestamp.fromDate(new Date())).orderBy("date", "desc")
       .get()
       .then((querySnapshot) => {
         if(querySnapshot.empty){
