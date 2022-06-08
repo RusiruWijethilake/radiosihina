@@ -67,6 +67,7 @@ header {
 
 .sidebar {
     position: fixed;
+    display:block;
     top: 0;
     /* rtl:raw:
     right: 0;
