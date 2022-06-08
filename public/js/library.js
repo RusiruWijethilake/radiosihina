@@ -64,7 +64,9 @@ function showRecordings(selected) {
           newDesc.innerHTML = "<th>No recordings from this presenter yet!</td>";
 
           recordingList.append(newDesc);
+          stopSpinner();
         }else{
+          recordingList.innerHTML = "";
           querySnapshot.forEach((doc) => {
               var id = doc.data().id;
               var link = doc.data().link;
