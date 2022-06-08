@@ -46,6 +46,13 @@ body{
     text-align: center;
 }
 
+.card-img-top{
+    height: 20rem;
+    width: auto;;
+    object-fit: cover;
+    object-position: center;
+}
+
 .navbar, .nav-link{
     color: black;
 }

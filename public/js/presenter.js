@@ -18,7 +18,7 @@ var storage = firebase.storage();
 
 var presentersView = document.getElementById("presenters");
 
-db.collection("presenters")
+db.collection("presenters").orderBy("ordernum")
     .get()
     .then((querySnapshot) => {
         querySnapshot.forEach((doc) => {
