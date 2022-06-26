@@ -35,46 +35,46 @@ var AudioPlayer = document.getElementById("audio-player");
 AudioPlayer.addEventListener('playing', logEvent("started playing"));
 AudioPlayer.addEventListener('pause', logEvent("stoped playing"));
 
-function logEvent(message){
-  analytics.logEvent("RADIO-PLAYER "+message);
+function logEvent(message) {
+  analytics.logEvent("RADIO-PLAYER " + message);
 }
 
 db.collection("live").doc("radiosihina")
-    .onSnapshot((doc) => {
-        if(doc.data().status){
-          playerOff.style.display = "none";
-          playerOn.style.display = "block";
-          txtNowPlaying.innerHTML = doc.data().nowplaying;
-          txtPresenter.innerHTML = doc.data().presenter;
-          var newStreamUrl = doc.data().streamurl;
+  .onSnapshot((doc) => {
+    if (doc.data().status) {
+      playerOff.style.display = "none";
+      playerOn.style.display = "block";
+      txtNowPlaying.innerHTML = doc.data().nowplaying;
+      txtPresenter.innerHTML = doc.data().presenter;
+      var newStreamUrl = doc.data().streamurl;
 
-          if(newStreamUrl != streamUrl){
-            streamUrl = newStreamUrl;
-            AudioPlayer.setAttribute("src", streamUrl);
-          }
+      if (newStreamUrl != streamUrl) {
+        streamUrl = newStreamUrl;
+        AudioPlayer.setAttribute("src", streamUrl);
+      }
 
-          var pathReference = storage.refFromURL(doc.data().imgurl);
-          pathReference.getDownloadURL().then((url) => {
-            imgNowPlaying.src = url;
-          })
-          .catch((error) => {
-            imgNowPlaying.src = "img/placeholder.jpg";
-          });
-          stopSpinner();
-        }else{
-          startSpinner();
-          AudioPlayer.pause();
-          AudioPlayer.setAttribute("src", "");
-          playerOn.style.display = "none";
-          playerOff.style.display = "block";
-          stopSpinner();
-        }
-    });
+      var pathReference = storage.refFromURL(doc.data().imgurl);
+      pathReference.getDownloadURL().then((url) => {
+        imgNowPlaying.src = url;
+      })
+        .catch((error) => {
+          imgNowPlaying.src = "img/placeholder.jpg";
+        });
+      stopSpinner();
+    } else {
+      startSpinner();
+      AudioPlayer.pause();
+      AudioPlayer.setAttribute("src", "");
+      playerOn.style.display = "none";
+      playerOff.style.display = "block";
+      stopSpinner();
+    }
+  });
 
-function startSpinner(){
+function startSpinner() {
   document.getElementById("overlay").style.display = "block";
 }
 
-function stopSpinner(){
+function stopSpinner() {
   document.getElementById("overlay").style.display = "none";
 }

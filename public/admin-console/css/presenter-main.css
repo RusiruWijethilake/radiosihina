@@ -1,0 +1,54 @@
+html,
+body {
+  height: 100%;
+}
+
+body {
+    display: flex;
+    align-items: center;
+    padding-top: 40px;
+    padding-bottom: 40px;
+    background-color: #FEF8FA;
+    background-image: url("../../img/background.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: top;
+    background-attachment: fixed;
+}
+
+.form-signin {
+    max-width: 330px;
+    padding: 25px;
+    border-radius: 25px;
+    background: rgba(255, 255, 255, 0.78);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(6.2px);
+    -webkit-backdrop-filter: blur(6.2px);
+}
+
+.form-signin .form-floating:focus-within {
+    z-index: 2;
+}
+
+.form-signin input[type="email"] {
+    margin-bottom: -1px;
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+}
+
+.form-signin input[type="password"] {
+    margin-bottom: 10px;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+}
+
+.btn-gradiented {
+    background: linear-gradient(90deg, rgba(187,102,255,1) 0%, rgba(255,165,51,1) 50%, rgba(255,107,110,1) 100%);
+    border: #f5f5f5 solid 1px;
+}
+
+.txt-gradiented {
+    background: linear-gradient(90deg, rgba(187,102,255,1) 0%, rgba(255,165,51,1) 50%, rgba(255,107,110,1) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
